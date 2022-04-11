@@ -52,7 +52,10 @@ if "install" in sys.argv:
             break
 
 
-setup()
+setup(name='gravyty-django',
+    version='3.2.13',
+    author='Anthony Ong',
+    author_email='anthony.ong@gravyty.com',)
 
 
 if overlay_warning:
