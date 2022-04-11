@@ -1,5 +1,7 @@
 from django.contrib.postgres.fields import ArrayField
-from django.db.models import Aggregate, BooleanField, JSONField, Value
+from django.db.models import (
+    Aggregate, BooleanField, JSONField, TextField, Value,
+)
 
 from .mixins import OrderableAggMixin
 
@@ -19,8 +21,8 @@ class ArrayAgg(OrderableAggMixin, Aggregate):
 
     def convert_value(self, value, expression, connection):
         if not value:
-            return []
-        return value
+            return ''
+        return
 
 
 class BitAnd(Aggregate):
@@ -49,14 +51,15 @@ class JSONBAgg(OrderableAggMixin, Aggregate):
 
     def convert_value(self, value, expression, connection):
         if not value:
-            return '[]'
-        return value
+            return ''
+        return
 
 
 class StringAgg(OrderableAggMixin, Aggregate):
     function = 'STRING_AGG'
     template = '%(function)s(%(distinct)s%(expressions)s %(ordering)s)'
     allow_distinct = True
+    output_field = TextField()
 
     def __init__(self, expression, delimiter, **extra):
         delimiter_expr = Value(str(delimiter))
@@ -65,4 +68,4 @@ class StringAgg(OrderableAggMixin, Aggregate):
     def convert_value(self, value, expression, connection):
         if not value:
             return ''
-        return value
+        return
