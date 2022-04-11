@@ -22,7 +22,7 @@ class ArrayAgg(OrderableAggMixin, Aggregate):
     def convert_value(self, value, expression, connection):
         if not value:
             return []
-        return
+        return value
 
 
 class BitAnd(Aggregate):
@@ -52,7 +52,7 @@ class JSONBAgg(OrderableAggMixin, Aggregate):
     def convert_value(self, value, expression, connection):
         if not value:
             return '[]'
-        return
+        return value
 
 
 class StringAgg(OrderableAggMixin, Aggregate):
@@ -68,4 +68,4 @@ class StringAgg(OrderableAggMixin, Aggregate):
     def convert_value(self, value, expression, connection):
         if not value:
             return ''
-        return
+        return value
