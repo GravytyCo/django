@@ -53,7 +53,7 @@ if "install" in sys.argv:
 
 
 setup(name='gravyty-django',
-    version='3.2.13',
+    version='3.2.14',
     author='Anthony Ong',
     author_email='anthony.ong@gravyty.com',)
 
