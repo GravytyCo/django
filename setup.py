@@ -52,8 +52,8 @@ if "install" in sys.argv:
             break
 
 
-setup(name='gravyty-django',
-    version='3.2.13',
+setup(name='Django',
+    version='3.2.12',
     author='Anthony Ong',
     author_email='anthony.ong@gravyty.com',)
 
